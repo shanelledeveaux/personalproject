@@ -1,0 +1,6 @@
+.family {
+  border: 5px solid black;
+  display: flex;
+  width: 20%;
+  height: 20%;
+}

@@ -1,0 +1,15 @@
+.header {
+  background: grey;
+  color: white;
+  height: 10vh;
+  width: 100%;
+  padding-left: 100px;
+  display: flex;
+}
+
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 100px;
+}
