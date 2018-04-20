@@ -1,8 +1,10 @@
 import React from "react";
 import "./Family.css";
+import { Link } from "react-router-dom";
 // import { removeFamily } from "../../ducks/reducer";
 
 const Family = props => {
+  console.log(props.id);
   return (
     <div>
       <div className="family">
@@ -18,6 +20,11 @@ const Family = props => {
         {/* Link => /family/props.id */}
         <div className="button-container">
           <button onClick={() => props.removeFamily(props.id)}>DELETE</button>
+          <div>
+            <Link to={`/Family/${props.id}`}>
+              <button>View</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

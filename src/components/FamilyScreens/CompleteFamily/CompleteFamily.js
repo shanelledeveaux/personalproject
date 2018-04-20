@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../Header/Header";
 import Member from "../Member/Member";
 import CaseNote from "../../CaseNote/CaseNote";
+import DemoInfo from "../../DemoInfo/DemoInfo";
 import RaisedButton from "material-ui/RaisedButton";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -11,6 +12,7 @@ import {
   removeMember,
   getCaseNotes
 } from "../../../ducks/memberreducer";
+import { getDemo } from "../../../ducks/demoreducer";
 
 class CompleteFamily extends React.Component {
   constructor(props) {
@@ -21,6 +23,7 @@ class CompleteFamily extends React.Component {
   componentDidMount() {
     this.props.getMember(this.props.match.params.id);
     this.props.getCaseNotes(this.props.match.params.id);
+    this.props.getDemo(this.props.match.params.id);
   }
 
   render() {
@@ -29,7 +32,7 @@ class CompleteFamily extends React.Component {
       margin: 12
     };
     const { member } = this.props.memberreducer;
-    console.log(member);
+
     const list = member.map((e, i) => {
       return (
         <Member
@@ -58,6 +61,20 @@ class CompleteFamily extends React.Component {
       );
     });
 
+    const { demo } = this.props.demoreducer;
+    const demos = demo.map((e, i) => {
+      return (
+        <DemoInfo
+          key={i}
+          id={e.demoid}
+          hud={e.hud}
+          snap={e.snap}
+          wic={e.wic}
+          tanf={e.tanf}
+        />
+      );
+    });
+
     return (
       <div className="addfam">
         <div>
@@ -66,10 +83,11 @@ class CompleteFamily extends React.Component {
         <Link to={`/Family/${this.props.match.params.id}/AddMember`}>
           <RaisedButton label="Add Member" style={style} />
         </Link>
-        COMPLETE FAMILIY PAGE
+        COMPLETE FAMILY PAGE
         <div className="memberbox">{list}</div>
         <div className="casenote">{note}</div>
-        <Link to="/Screen3">
+        <div className="demoinfo">{demo}</div>
+        <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
           <RaisedButton label="Next" style={style} />
         </Link>
         <Link to={`/Family/${this.props.match.params.id}/Screen5`}>
@@ -85,5 +103,6 @@ const mapStateToProps = state => state;
 export default connect(mapStateToProps, {
   getMember,
   removeMember,
-  getCaseNotes
+  getCaseNotes,
+  getDemo
 })(CompleteFamily);

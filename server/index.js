@@ -101,6 +101,11 @@ app.get(`/api/notes/:familyid`, mc.getNotes);
 app.delete(`/api/notes/:id`, mc.removeNotes);
 app.post(`/api/notes`, mc.submitCaseNotes);
 
+//DEMOGRAPHIC SUBMIT
+app.get(`/api/demo/:familyid`, mc.getDemo);
+app.delete(`/api/demo/:id`, mc.removeDemo);
+app.post(`/api/demo`, mc.submitDemo);
+
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });

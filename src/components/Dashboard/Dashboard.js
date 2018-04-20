@@ -14,22 +14,23 @@ class Dashboard extends React.Component {
 
   componentDidMount() {
     this.props.getFamily();
+    this.props.removeFamily();
   }
 
-  // removeFamily(id) {
-  //   axios
-  //     .delete(`/api/family/${id}`)
-  //     .then(response => console.log(`deleted product: ${id}`))
-  //     .then(() => this.getFamily())
-  //     .catch(error => console.log(error));
-  // }
+  removeFamily(id) {
+    axios
+      .delete(`/api/family/${id}`)
+      .then(() => this.getFamily())
+      .catch(error => console.log(error));
+    // .then(response => console.log(`deleted product: ${id}`))
+  }
 
   render() {
     const { family } = this.props.reducer;
-    // console.log(this.props.family);
+    console.log(this.props.family);
     const list = family.map((e, i) => {
       return (
-        <Link key={e.familyid} to={`/Family/${e.familyid}`}>
+        <div key={e.familyid}>
           <Family
             id={e.familyid}
             name={e.familyname}
@@ -41,7 +42,7 @@ class Dashboard extends React.Component {
             casemgr={e.casemgr}
             removeFamily={this.props.removeFamily}
           />
-        </Link>
+        </div>
       );
     });
 

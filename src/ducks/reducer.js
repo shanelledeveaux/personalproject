@@ -149,6 +149,7 @@ export function getFamily() {
 }
 
 export function removeFamily(id) {
+  console.log("deleting", id);
   return {
     type: REMOVE_FAMILY,
     payload: axios.delete(`/api/family/${id}`)

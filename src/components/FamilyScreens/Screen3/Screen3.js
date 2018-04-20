@@ -10,7 +10,8 @@ import {
   updateHUD,
   updateSNAP,
   updateWIC,
-  updateTANF
+  updateTANF,
+  submitDemo
 } from "../../../ducks/demoreducer";
 
 class Screen3 extends React.Component {
@@ -60,18 +61,33 @@ class Screen3 extends React.Component {
           <Divider />
         </Paper>
         <Link to="/Screen4">
-          <button>Next</button>
+          <button
+            onClick={e =>
+              this.props.submitDemo(
+                this.props.demoreducer.hud,
+                this.props.demoreducer.snap,
+                this.props.demoreducer.wic,
+                this.props.demoreducer.tanf,
+                this.props.match.params.id
+              )
+            }
+          >
+            Next
+          </button>
         </Link>
       </div>
     );
   }
 }
 
-const mapStateToProps = state => state;
+const mapStateToProps = state => {
+  return state;
+};
 
 export default connect(mapStateToProps, {
   updateHUD,
   updateSNAP,
   updateWIC,
-  updateTANF
+  updateTANF,
+  submitDemo
 })(Screen3);

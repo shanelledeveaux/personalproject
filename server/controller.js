@@ -15,7 +15,8 @@ module.exports = {
     dbInstance
       .remove_family([id])
       .then(response => res.status(200).send(response))
-      .catch(() => res.status(500).send());
+      .catch(console.log);
+    // .catch(() => res.status(500).send());
   },
   submitFamily: (req, res, next) => {
     console.log(req.user);
@@ -108,12 +109,42 @@ module.exports = {
 
   submitCaseNotes: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { date, notes, familyId } = req.body;
+    const { familyId, date, notes } = req.body;
+
+    dbInstance
+      .add_notes([familyId, date, notes])
+      .then(response => {
+        console.log(response);
+        res.status(200).json(response);
+      })
+      .catch(console.log);
+  },
+
+  getDemo: (req, res, next) => {
+    const { familyid } = req.params;
+    const dbInstance = req.app.get("db");
+    dbInstance
+      .get_demo([familyid])
+      .then(response => res.status(200).send(response))
+      .catch(() => res.status(500).send());
+  },
+
+  removeDemo: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    dbInstance
+      .remove_demo()
+      .then(response => res.status(200).send(response))
+      .catch(() => res.status(500).send());
+  },
+
+  submitDemo: (req, res, next) => {
+    const dbInstance = req.app.get("db");
+    const { hud, snap, wic, tanf, familyId } = req.body;
 
     console.log(req.body);
 
     dbInstance
-      .add_notes([notes, date, familyId])
+      .add_demo([hud, snap, wic, tanf, familyId])
       .then(response => {
         console.log(response);
         res.status(200).json(response);

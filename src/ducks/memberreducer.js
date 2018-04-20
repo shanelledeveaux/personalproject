@@ -19,7 +19,7 @@ const initialState = {
   notes: "",
   caseNotes: [],
 
-  currentFamID: ""
+  familyId: ""
 };
 console.log(initialState);
 
@@ -47,7 +47,7 @@ const SUBMIT_CASENOTES = "UPDATE_CASENOTES";
 const REMOVE_NOTES = "REMOVE_NOTES";
 
 function reducer(state = initialState, action) {
-  console.log("action", action.payload);
+  // console.log("action", action.payload);
   switch (action.type) {
     case UPDATE_FIRST:
       return Object.assign({}, state, { firstname: action.payload });
@@ -103,7 +103,7 @@ function reducer(state = initialState, action) {
     case `${GET_CASENOTES}_FULFILLED`:
       return Object.assign({}, state, { caseNotes: action.payload.data });
 
-    case `${REMOVE_MEMBER}_FULFILLED`:
+    case `${REMOVE_NOTES}_FULFILLED`:
       return Object.assign({}, state, { caseNotes: action.payload.data });
 
     default:
@@ -233,6 +233,7 @@ export function getMember(familyId) {
 }
 
 export function removeMember(id) {
+  console.log("deleting", id);
   return {
     type: REMOVE_MEMBER,
     payload: axios.delete(`/api/person/${id}`)

@@ -17,9 +17,9 @@ export default (
       <Route component={AddFamily} path="/AddFamily" />
       {/* <Route component={ViewFamily} path="/family/:id" /> */}
       <Route component={AddMember} path="/Family/:id/AddMember" />
+      <Route component={Screen3} path="/Family/:id/Screen3" />
       <Route component={Screen5} path="/Family/:id/Screen5" />
       <Route component={CompleteFamily} path="/Family/:id" />
-      <Route component={Screen3} path="/Screen3" />
       <Route component={Screen4} path="/Screen4" />
     </Switch>
   </Switch>

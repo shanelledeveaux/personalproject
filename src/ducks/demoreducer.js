@@ -6,13 +6,18 @@ const initialState = {
   wic: "",
   tanf: "",
 
-  demo: []
+  demo: [],
+
+  familyId: ""
 };
 
 const UPDATE_HUD = "UPDATE_HUD";
 const UPDATE_SNAP = "UPDATE_SNAP";
 const UPDATE_WIC = "UPDATE_WIC";
 const UPDATE_TANF = "UPDATE_TANF";
+const SUBMIT_DEMO = "SUBMIT_DEMO";
+const GET_DEMO = "GET_DEMO";
+const REMOVE_DEMO = "REMOVE_DEMO";
 
 function reducer(state = initialState, action) {
   switch (action.type) {
@@ -27,6 +32,15 @@ function reducer(state = initialState, action) {
 
     case UPDATE_TANF:
       return Object.assign({}, state, { tanf: action.payload });
+
+    case `${SUBMIT_DEMO}_FULFILLED`:
+      return Object.assign({}, state, { demo: action.payload.data });
+
+    case `${GET_DEMO}_FULFILLED`:
+      return Object.assign({}, state, { demo: action.payload.data });
+
+    case `${REMOVE_DEMO}_FULFILLED`:
+      return Object.assign({}, state, { demo: action.payload.data });
 
     default:
       return state;
@@ -60,5 +74,26 @@ export function updateTANF(tanf) {
   return {
     type: UPDATE_TANF,
     payload: tanf
+  };
+}
+
+export function submitDemo(hud, snap, wic, tanf, familyid) {
+  return {
+    type: SUBMIT_DEMO,
+    payload: axios.post("/api/demo", { hud, snap, wic, tanf, familyid })
+  };
+}
+
+export function getDemo(familyId) {
+  return {
+    type: GET_DEMO,
+    payload: axios.get(`/api/demo/${familyId}`)
+  };
+}
+
+export function removeDemo(id) {
+  return {
+    type: REMOVE_DEMO,
+    payload: axios.delete(`/api/demo/${id}`)
   };
 }
