@@ -1,0 +1,13 @@
+.enternotes {
+  height: 50vh;
+  width: 90%;
+  background-color: rgb(194, 190, 190);
+  margin-top: 10%;
+  margin-left: 2%;
+  padding: 25px;
+  border: 1px solid #efefef;
+  font-family: "Open Sans", sans-serif;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  line-height: 10;
+}

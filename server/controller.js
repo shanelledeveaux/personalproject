@@ -139,12 +139,12 @@ module.exports = {
 
   submitDemo: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { hud, snap, wic, tanf, familyId } = req.body;
+    const { hud, snap, wic, tanf, familyid } = req.body;
 
     console.log(req.body);
 
     dbInstance
-      .add_demo([hud, snap, wic, tanf, familyId])
+      .add_demo([hud, snap, wic, tanf, familyid])
       .then(response => {
         console.log(response);
         res.status(200).json(response);

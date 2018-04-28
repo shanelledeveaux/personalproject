@@ -1,0 +1,43 @@
+body {
+  background-image: url("adult-aged-baby-226616.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+
+.main {
+  height: 50vh;
+  width: 50%;
+  background-color: rgba(183, 195, 221, 0.767);
+  /* opacity: 0.7; */
+  z-index: 2;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 2px solid #ffffff;
+  /* box-shadow: 0 0 0 8px #ff0030; */
+  font-family: "Open Sans", sans-serif;
+  color: white;
+  box-shadow: 10px 610px 50px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  line-height: 1;
+  border-radius: 20px;
+  display: flex;
+  align-content: space-around;
+  position: absolute;
+  -webkit-transition: background-color 2s ease-out;
+  -moz-transition: background-color 2s ease-out;
+  -o-transition: background-color 2s ease-out;
+  transition: background-color 2s ease-out;
+}
+
+.main:hover {
+  background-color: rgb(162, 81, 165);
+  cursor: pointer;
+}
+
+.logo {
+  /* display: flex;
+  justify-content: center;
+  align-content: center; */
+}

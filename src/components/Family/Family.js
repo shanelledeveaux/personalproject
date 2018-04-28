@@ -10,6 +10,8 @@ const Family = props => {
       <div className="family">
         <div className="family-info">
           <p className="name">Family Name: {props.name} </p>
+        </div>
+        <div className="details">
           <p className="address1">Address: {props.address1} </p>
           <p className="address2">{props.address2} </p>
           <p className="city">City: {props.city}</p>
@@ -19,7 +21,7 @@ const Family = props => {
         </div>
         {/* Link => /family/props.id */}
         <div className="button-container">
-          <button onClick={() => props.removeFamily(props.id)}>DELETE</button>
+          <button onClick={() => props.removeFamily(props.id)}>Delete</button>
           <div>
             <Link to={`/Family/${props.id}`}>
               <button>View</button>

@@ -1,0 +1,26 @@
+housebox {
+  height: 10%;
+  width: 10%;
+}
+
+/* addfam {
+  display: flex;
+  justify-content: space-evenly;
+  width: 75%;
+} */
+
+.familyholder {
+  height: 90%;
+  width: 40%;
+  background-color: sienna;
+}
+
+.todo {
+  height: 70vh;
+  width: 40%;
+  background-color: gray;
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+  margin-left: 20px;
+}

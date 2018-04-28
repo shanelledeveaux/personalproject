@@ -1,6 +1,7 @@
 import React from "react";
 import "./Landingpage.css";
 import routes from "../../routes";
+// import famlogo from "../Landingpage/Family.png";
 // import axios from "axios";
 
 class Landingpage extends React.Component {
@@ -15,8 +16,10 @@ class Landingpage extends React.Component {
   render() {
     return (
       <div className="main">
-        <div className="title">LOGINNNNNNNNN</div>
-        <button onClick={this.loginHandler}>LOGIN</button>
+        <div className="logo">
+          YourHome
+          <button onClick={this.loginHandler}>LOGIN</button>
+        </div>
       </div>
     );
   }

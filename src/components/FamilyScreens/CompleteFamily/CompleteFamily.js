@@ -1,4 +1,5 @@
 import React from "react";
+import "./CompleteFamily.css";
 import Header from "../../Header/Header";
 import Member from "../Member/Member";
 import CaseNote from "../../CaseNote/CaseNote";
@@ -80,19 +81,26 @@ class CompleteFamily extends React.Component {
         <div>
           <Header />
         </div>
-        <Link to={`/Family/${this.props.match.params.id}/AddMember`}>
-          <RaisedButton label="Add Member" style={style} />
-        </Link>
-        COMPLETE FAMILY PAGE
-        <div className="memberbox">{list}</div>
-        <div className="casenote">{note}</div>
+        <div className="familytools">
+          <Link to={`/Family/${this.props.match.params.id}/AddMember`}>
+            <i class="material-icons">person_add</i>
+          </Link>
+          <Link to={`/Family/${this.props.match.params.id}/Screen5`}>
+            <i class="material-icons">note_add</i>
+          </Link>
+          <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
+            <i class="material-icons">navigate_next</i>
+          </Link>
+        </div>
+        <div className="memberdiv">
+          Family Members:
+          <div className="fammember"> {list}</div>
+        </div>
+        <div className="casebox">
+          Family Notes:
+          <div className="casenotebox"> {note}</div>
+        </div>
         <div className="demoinfo">{demo}</div>
-        <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
-          <RaisedButton label="Next" style={style} />
-        </Link>
-        <Link to={`/Family/${this.props.match.params.id}/Screen5`}>
-          <RaisedButton label="Add Case Notes" style={style} />
-        </Link>
       </div>
     );
   }

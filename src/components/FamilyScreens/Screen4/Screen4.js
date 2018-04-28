@@ -16,7 +16,7 @@ export default class AddMember extends React.Component {
           <Header />
         </div>
         SCREEN 4
-        <Link to="/Screen5">
+        <Link to="/Family/:id/Screen5">
           <button>Next</button>
         </Link>
       </div>

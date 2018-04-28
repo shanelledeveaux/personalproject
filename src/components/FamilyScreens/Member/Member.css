@@ -1,0 +1,52 @@
+.member {
+  flex: 1 1 50%;
+  position: relative;
+  border: 1px solid #efefef;
+  background-color: rgb(114, 124, 134);
+  height: 45vh;
+  width: 300px;
+  font-family: "Open Sans", sans-serif;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  /* display: flex; */
+  line-height: 2%;
+  display: inline-block;
+  margin-top: 2%;
+  margin-left: 2%;
+  /* float: left; */
+  /* padding-left: 10px; */
+  border-radius: 10px;
+}
+
+.member:hover {
+  box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.membername {
+  /* padding: 30 110px; */
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(35, 39, 83);
+  line-height: 0.75;
+  display: flex;
+  justify-content: space-evenly;
+  margin-right: 10%;
+  margin-left: 10%;
+  /* float: left; */
+}
+
+.memberinfo {
+  padding-left: 10px;
+  line-height: 0.75;
+  color: rgb(46, 52, 58);
+}
+
+/* .family-info {
+  padding: 30 30 110px;
+  font-weight: 700;
+  font-size: 20px;
+  color: black;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+} */

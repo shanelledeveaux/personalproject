@@ -1,6 +1,83 @@
 .family {
-  border: 5px solid black;
+  flex: 50%;
+  border: 1px solid #efefef;
+  background-color: gainsboro;
+  font-family: "Open Sans", sans-serif;
+  box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  line-height: 1;
+  height: 10%;
+  width: 325px;
+  z-index: -1;
+  display: block;
+  margin-top: 5%;
+  margin-left: 5%;
+  float: left;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.family:hover {
+  box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+}
+
+.family-info {
+  padding: 30 30 110px;
+  font-weight: 700;
+  font-size: 20px;
+  color: rgb(45, 84, 116);
+  line-height: 1.5;
+}
+
+.details {
+  /* position: absolute; */
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  line-height: 0.75;
+  color: rgb(82, 81, 81);
+}
+
+.name {
+  margin: 0;
+}
+
+.card p {
+  margin: 0 0 30px;
+}
+
+/* html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+} */
+
+button {
   display: flex;
-  width: 20%;
-  height: 20%;
+  font-size: 1rem;
+  background: rgb(57, 73, 145);
+  border: 1px solid rgb(52, 58, 133);
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  text-align: center;
+  justify-content: space-between;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+.button:hover,
+.button:focus {
+  background: darken(rgb(145, 57, 145), 10%);
+  border: 1px solid darken(rgb(145, 57, 145), 10%);
+}
+
+casemgr {
+  color: #666666;
+}
+
+casemgr:hover {
+  color: #222222;
 }

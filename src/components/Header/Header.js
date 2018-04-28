@@ -3,6 +3,7 @@ import "./Header.css";
 import RaisedButton from "material-ui/RaisedButton";
 import routes from "../../routes";
 import { Link } from "react-router-dom";
+import famlogo from "../Landingpage/Family.png";
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -15,13 +16,14 @@ export default class Header extends React.Component {
     };
     return (
       <div className="header">
-        <div>FAM MANG</div>
+        {/* <img className="famlogo" src={famlogo} alt="Fam Logo" width="8%" /> */}
+        <div className="title">YourHome</div>
         <div className="menu-button">
           <Link to="/AddFamily">
-            <RaisedButton label="Add Family" style={style} />
+            <i class="material-icons">group_add</i>
           </Link>
           <Link to="/Dash">
-            <RaisedButton label="Dash" style={style} />
+            <i class="material-icons">home</i>
           </Link>
         </div>
       </div>

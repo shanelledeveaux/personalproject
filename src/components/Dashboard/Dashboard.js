@@ -1,4 +1,5 @@
 import React from "react";
+import "./Dashboard.css";
 import Header from "../Header/Header";
 import Family from "../Family/Family";
 import { Link } from "react-router-dom";
@@ -51,8 +52,10 @@ class Dashboard extends React.Component {
         <div>
           <Header />
         </div>
-        THIS IS THE DASHBOARD
-        <div className="housebox">{list}</div>
+        <div className="familyholder">
+          <div className="housebox">{list}</div>
+        </div>
+        <div className="todo">TODO LIST</div>
       </div>
     );
   }

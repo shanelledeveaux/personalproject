@@ -3,7 +3,7 @@ import "./CaseNote.css";
 
 const CaseNote = props => {
   return (
-    <div className="CaseNote">
+    <div className="casenote">
       <div className="note">
         <p className="date">{props.date}</p>
         <p className="info">{props.notes}</p>

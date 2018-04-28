@@ -1,15 +1,44 @@
 .header {
-  background: grey;
+  background-color: rgba(183, 195, 221, 0.767);
   color: white;
-  height: 10vh;
+  border: 1px solid #e2dada;
+  height: 13vh;
   width: 100%;
-  padding-left: 100px;
+  padding-left: 5%;
   display: flex;
+  align-content: flex-start;
+  font-family: "Open Sans", sans-serif;
+}
+
+.title {
+  margin-top: 3%;
 }
 
 .menu-button {
+  position: absolute;
+  right: 5%;
+  top: 4%;
+  color: white;
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding-right: 100px;
+  justify-content: space-between;
+}
+
+famlogo {
+  margin: 10px;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 45px; /* Preferred icon size */
+  color: white;
+  display: inline-block;
+  line-height: 1;
+  margin-right: 30px;
+  /* text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr; */
 }
