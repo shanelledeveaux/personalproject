@@ -42,9 +42,10 @@ module.exports = {
   },
 
   removePerson: (req, res, next) => {
+    const { id, familyId } = req.params;
     const dbInstance = req.app.get("db");
     dbInstance
-      .remove_person()
+      .remove_person([id, familyId])
       .then(response => res.status(200).send(response))
       .catch(() => res.status(500).send());
   },
@@ -88,6 +89,17 @@ module.exports = {
         res.status(200).json(response);
       })
       .catch(console.log);
+  },
+
+  editActive: (req, res, next) => {
+    const { familyId, id } = req.params;
+    const { val } = req.body;
+    console.log(familyId);
+    const dbInstance = req.app.get("db");
+    dbInstance
+      .edit_active([val, id, familyId])
+      .then(response => res.status(200).send(response))
+      .catch(e => console.log(e));
   },
 
   getNotes: (req, res, next) => {

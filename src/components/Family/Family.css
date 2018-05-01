@@ -6,15 +6,15 @@
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   line-height: 1;
-  height: 10%;
   width: 325px;
   z-index: -1;
   display: block;
-  margin-top: 5%;
-  margin-left: 5%;
   float: left;
-  padding-left: 10px;
+  /* padding-left: 10px; */
   border-radius: 10px;
+  box-sizing: border-box;
+  padding: 10px;
+  /* margin: 10px; */
 }
 
 .family:hover {

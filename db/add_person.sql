@@ -1,2 +1,2 @@
 insert into memberinfo (firstname, lastname, role, birthday, workplace, income, race, ethnicity, ageatfirstchild, education, criminalrecord, familyid) values ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);
-select * from memberinfo;
+select * from memberinfo where familyid = $12;

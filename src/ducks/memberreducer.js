@@ -12,6 +12,7 @@ const initialState = {
   firstChild: null,
   education: "",
   record: "",
+  active: true,
 
   member: [],
 
@@ -38,6 +39,7 @@ const UPDATE_RECORD = "UPDATE_RECORD";
 const GET_MEMBER = "GET_MEMBER";
 const SUBMIT_MEMBER = "SUBMIT_MEMBER";
 const REMOVE_MEMBER = "REMOVE_MEMBER";
+const EDIT_ACTIVE = "EDIT_ACTIVE";
 
 const UPDATE_DATE = "UPDATE_DATE";
 const UPDATE_NOTES = "UPDATE_NOTES";
@@ -89,6 +91,10 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { member: action.payload.data });
 
     case `${REMOVE_MEMBER}_FULFILLED`:
+      return Object.assign({}, state, { member: action.payload.data });
+
+    case `${EDIT_ACTIVE}_FULFILLED`:
+      console.log(action.payload);
       return Object.assign({}, state, { member: action.payload.data });
 
     case UPDATE_DATE:
@@ -232,11 +238,18 @@ export function getMember(familyId) {
   };
 }
 
-export function removeMember(id) {
+export function removeMember(id, familyId) {
   console.log("deleting", id);
   return {
     type: REMOVE_MEMBER,
-    payload: axios.delete(`/api/person/${id}`)
+    payload: axios.delete(`/api/person/${id}/${familyId}`)
+  };
+}
+
+export function editActive(id, familyId, val) {
+  return {
+    type: EDIT_ACTIVE,
+    payload: axios.put(`/api/person/${id}/${familyId}`, { val })
   };
 }
 

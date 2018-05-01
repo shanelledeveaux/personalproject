@@ -20,10 +20,10 @@ export default class Header extends React.Component {
         <div className="title">YourHome</div>
         <div className="menu-button">
           <Link to="/AddFamily">
-            <i class="material-icons">group_add</i>
+            <i className="material-icons">group_add</i>
           </Link>
           <Link to="/Dash">
-            <i class="material-icons">home</i>
+            <i className="material-icons">home</i>
           </Link>
         </div>
       </div>

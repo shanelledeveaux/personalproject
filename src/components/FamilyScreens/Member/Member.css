@@ -3,7 +3,7 @@
   position: relative;
   border: 1px solid #efefef;
   background-color: rgb(114, 124, 134);
-  height: 45vh;
+  /* height: 30%; */
   width: 300px;
   font-family: "Open Sans", sans-serif;
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);

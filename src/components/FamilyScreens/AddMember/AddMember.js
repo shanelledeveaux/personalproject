@@ -47,7 +47,6 @@ class AddMember extends React.Component {
         <div>
           <Header />
         </div>
-        ADD MEMBER HERE
         {/* NEED BIRTHDAY, RACE ETHNICIY AND RECORD */}
         <Paper zDepth={2}>
           <TextField

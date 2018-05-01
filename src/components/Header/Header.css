@@ -1,17 +1,19 @@
 .header {
   background-color: rgba(183, 195, 221, 0.767);
   color: white;
-  border: 1px solid #e2dada;
+  /* border: 1px solid #e2dada; */
   height: 13vh;
-  width: 100%;
-  padding-left: 5%;
+  /* width: 100vw; */
+  /* padding-left: 5%; */
   display: flex;
   align-content: flex-start;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Kaushan Script", cursive;
 }
 
 .title {
   margin-top: 3%;
+  letter-spacing: 1px;
+  font-size: 30px;
 }
 
 .menu-button {
@@ -41,4 +43,17 @@ famlogo {
   word-wrap: normal;
   white-space: nowrap;
   direction: ltr; */
+}
+
+@media (max-width: 400px) {
+  .title {
+    display: none;
+  }
+  .header {
+    background-color: steelblue;
+  }
+  .menu-button {
+    position: fixed;
+    justify-content: center;
+  }
 }

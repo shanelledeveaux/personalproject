@@ -12,6 +12,7 @@ const styles = {
 };
 
 const Member = props => {
+  // console.log(props);
   return (
     <div className="member">
       <div className="membername">
@@ -28,10 +29,20 @@ const Member = props => {
         <p className="firstchild">Age At First Child: {props.firstchild}</p>
         <p className="education">Education Level: {props.education}</p>
         <p className="criminalrecord">Criminal Record: {props.record}</p>
-        <Checkbox label="Active" labelPosition="left" style={styles.checkbox} />
+        <Checkbox
+          label="Active"
+          checked={props.active}
+          labelPosition="left"
+          style={styles.checkbox}
+          onCheck={() =>
+            props.editActive(props.id, props.familyid, !props.active)
+          }
+        />
       </div>
       <div className="button-container">
-        <button onClick={() => props.removeMember(props.id)}>DELETE</button>
+        <button onClick={() => props.removeMember(props.id, props.familyid)}>
+          DELETE
+        </button>
       </div>
     </div>
   );

@@ -15,10 +15,14 @@ class Landingpage extends React.Component {
   }
   render() {
     return (
-      <div className="main">
-        <div className="logo">
-          YourHome
-          <button onClick={this.loginHandler}>LOGIN</button>
+      <div className="page">
+        <div className="main">
+          <div className="logo">
+            <div className="title">YourHome</div>
+          </div>
+          <div>
+            <button onClick={this.loginHandler}>LOGIN</button>
+          </div>
         </div>
       </div>
     );

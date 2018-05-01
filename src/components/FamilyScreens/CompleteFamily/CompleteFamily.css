@@ -1,26 +1,42 @@
 .fammember {
   height: 40vh;
-  width: 90%;
+  width: 95%;
   background-color: whitesmoke;
   overflow: scroll;
-  margin: 40px;
+  margin: auto;
 }
 
 .casenotebox {
   height: 25vh;
-  width: 90%;
-  background-color: thistle;
-  margin: 40px;
+  width: 95%;
+  background-color: whitesmoke;
+  margin: auto;
   overflow: scroll;
 }
 
-familytools {
-  display: inline;
+.familytools {
+  display: flex;
   justify-content: right;
+  background: linear-gradient(
+    to bottom right,
+    rgba(150, 162, 190, 0.767),
+    rgba(94, 110, 143, 0.767)
+  );
+  height: 7vh;
+  width: 100%;
+  padding-left: 5%;
+  padding-top: 5px;
 }
 
 .addfam {
   font-family: "Open Sans", sans-serif;
-  color: white;
+  color: rgb(69, 112, 148);
   justify-content: center;
+}
+
+.text {
+  display: flex;
+  align-self: center;
+  justify-content: center;
+  font-size: 200%;
 }

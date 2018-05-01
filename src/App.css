@@ -1,8 +1,11 @@
-a {
-  text-decoration: none;
-  color: black;
+* {
+  /* margin: 0;
+  padding: 0;
+  box-sizing: border-box; */
 }
-
-a:visited {
-  color: black;
+.App {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; */
 }

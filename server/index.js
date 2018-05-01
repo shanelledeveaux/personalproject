@@ -93,8 +93,9 @@ app.post(`/api/family`, mc.submitFamily);
 
 //PERSON SUBMIT
 app.get(`/api/person/:familyid`, mc.getPerson);
-app.delete(`/api/person/:id`, mc.removePerson);
+app.delete(`/api/person/:id/:familyId`, mc.removePerson);
 app.post(`/api/person`, mc.submitPerson);
+app.put(`/api/person/:id/:familyId`, mc.editActive);
 
 //CASENOTES SUBMIT
 app.get(`/api/notes/:familyid`, mc.getNotes);

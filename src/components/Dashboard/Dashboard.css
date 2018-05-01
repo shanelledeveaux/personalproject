@@ -1,26 +1,85 @@
-housebox {
-  height: 10%;
-  width: 10%;
+.housebox {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 30vw;
+  height: 70vh;
+  background-color: whitesmoke;
+  flex-basis: 1;
+  margin-top: 10px;
+  padding: 10px;
 }
 
-/* addfam {
+.addfam {
   display: flex;
-  justify-content: space-evenly;
-  width: 75%;
-} */
+  flex-direction: column;
+
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
 
 .familyholder {
-  height: 90%;
-  width: 40%;
-  background-color: sienna;
+  height: vh;
+  width: 95vw;
+  margin: 2vh 2.5vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.todo {
+.calc-div {
   height: 70vh;
-  width: 40%;
+  width: 30vw;
+  background-color: gray;
+  display: fixed;
+  justify-content: right;
+  margin-top: 20px;
+  margin-left: 10px;
+  flex-basis: 1;
+}
+
+.inputfield {
+  height: 50%;
+  width: 90%;
+  background-color: seashell;
+  margin: auto;
+  border-radius: 10px;
+  line-height: 60px;
+}
+
+.titlecalc {
+  font-size: 27px;
+  color: seashell;
+  font-family: "Kaushan Script", cursive;
+  margin: auto;
+  padding: 20px;
+}
+
+h1 {
+  padding: 20px;
+  color: seashell;
+}
+
+.api {
+  height: 70vh;
+  width: 33vw;
   background-color: gray;
   display: flex;
   justify-content: right;
   margin-top: 20px;
-  margin-left: 20px;
+  margin-left: 10px;
+  flex-basis: 1;
+}
+
+@media (max-width: 1025px) {
+  .calc-div {
+    display: none;
+  }
+  .api {
+    display: none;
+  }
+  .housebox {
+    width: 95%;
+    height: 100%;
+  }
 }
