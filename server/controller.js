@@ -1,5 +1,7 @@
 const axios = require("axios");
 
+newAdvice = [];
+
 module.exports = {
   getFamily: (req, res, next) => {
     const dbInstance = req.app.get("db");
@@ -112,9 +114,11 @@ module.exports = {
   },
 
   removeNotes: (req, res, next) => {
+    const { id, familyid } = req.params;
     const dbInstance = req.app.get("db");
+    console.log(req.params);
     dbInstance
-      .remove_notes()
+      .remove_notes([id, familyid])
       .then(response => res.status(200).send(response))
       .catch(() => res.status(500).send());
   },
@@ -162,5 +166,14 @@ module.exports = {
         res.status(200).json(response);
       })
       .catch(console.log);
+  },
+
+  getAdvice: (req, res, next) => {
+    axios
+      .get(`http://api.adviceslip.com/advice`)
+      .then(response => {
+        res.status(200).json(response.data);
+      })
+      .catch();
   }
 };

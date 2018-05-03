@@ -2,43 +2,44 @@
   flex: 1 1 50%;
   position: relative;
   border: 1px solid #efefef;
-  background-color: rgb(114, 124, 134);
+  background-color: rgb(202, 205, 209);
   /* height: 30%; */
   width: 300px;
-  font-family: "Open Sans", sans-serif;
+  font-family: "Raleway", sans-serif;
   box-shadow: 2px 6px 25px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
   /* display: flex; */
   line-height: 2%;
   display: inline-block;
-  margin-top: 2%;
+  /* margin-top: 2%; */
   margin-left: 2%;
   /* float: left; */
   /* padding-left: 10px; */
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .member:hover {
-  box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 6px 30px rgba(0, 0, 0, 0.349);
 }
 
 .membername {
   /* padding: 30 110px; */
   font-weight: 700;
   font-size: 20px;
-  color: rgb(35, 39, 83);
-  line-height: 0.75;
+  color: whitesmoke;
+  line-height: 0.1;
   display: flex;
   justify-content: space-evenly;
   margin-right: 10%;
   margin-left: 10%;
+  font-family: "Raleway", sans-serif;
   /* float: left; */
 }
 
 .memberinfo {
   padding-left: 10px;
   line-height: 0.75;
-  color: rgb(46, 52, 58);
+  color: rgb(99, 104, 107);
 }
 
 /* .family-info {

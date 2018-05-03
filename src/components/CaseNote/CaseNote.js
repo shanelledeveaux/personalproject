@@ -9,7 +9,9 @@ const CaseNote = props => {
         <p className="info">{props.notes}</p>
       </div>
       <div className="button">
-        <button onClick={() => props.removeNote(props.id)}>DELETE</button>
+        <button onClick={() => props.removeNote(props.id, props.familyid)}>
+          Delete
+        </button>
       </div>
     </div>
   );

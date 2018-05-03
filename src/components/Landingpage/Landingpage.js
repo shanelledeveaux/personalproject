@@ -21,7 +21,7 @@ class Landingpage extends React.Component {
             <div className="title">YourHome</div>
           </div>
           <div>
-            <button onClick={this.loginHandler}>LOGIN</button>
+            <button onClick={this.loginHandler}>Login</button>
           </div>
         </div>
       </div>

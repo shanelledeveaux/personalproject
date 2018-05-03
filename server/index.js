@@ -99,13 +99,16 @@ app.put(`/api/person/:id/:familyId`, mc.editActive);
 
 //CASENOTES SUBMIT
 app.get(`/api/notes/:familyid`, mc.getNotes);
-app.delete(`/api/notes/:id`, mc.removeNotes);
+app.delete(`/api/notes/:id/:familyId`, mc.removeNotes);
 app.post(`/api/notes`, mc.submitCaseNotes);
 
 //DEMOGRAPHIC SUBMIT
 app.get(`/api/demo/:familyid`, mc.getDemo);
 app.delete(`/api/demo/:id`, mc.removeDemo);
 app.post(`/api/demo`, mc.submitDemo);
+
+//ADVICE API
+app.get("/api/advice", mc.getAdvice);
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);

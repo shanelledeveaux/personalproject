@@ -41,7 +41,7 @@ function reducer(state = initialState, action) {
       return Object.assign({}, state, { address2: action.payload });
 
     case UPDATE_CITY:
-      return Object.assign({}, state, { city: action.paylaod });
+      return Object.assign({}, state, { city: action.payload });
 
     case UPDATE_STATE:
       return Object.assign({}, state, { stateName: action.payload });

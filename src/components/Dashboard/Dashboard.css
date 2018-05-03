@@ -1,12 +1,14 @@
 .housebox {
   overflow-y: scroll;
   overflow-x: hidden;
-  width: 30vw;
-  height: 70vh;
-  background-color: whitesmoke;
+  border-radius: 8px;
+  width: 25vw;
+  height: 78vh;
+  background-color: none;
   flex-basis: 1;
   margin-top: 10px;
   padding: 10px;
+  /* box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px; */
 }
 
 .addfam {
@@ -14,12 +16,13 @@
   flex-direction: column;
 
   width: 100%;
+  height: 100%;
+  /* height: 90vh; */
   display: flex;
   justify-content: space-between;
 }
 
 .familyholder {
-  height: vh;
   width: 95vw;
   margin: 2vh 2.5vw;
   display: flex;
@@ -28,47 +31,106 @@
 }
 
 .calc-div {
-  height: 70vh;
-  width: 30vw;
-  background-color: gray;
+  height: 80vh;
+  width: 40vw;
+  background: linear-gradient(
+    to bottom right,
+    rgba(108, 117, 138, 0.767),
+    rgba(65, 76, 99, 0.767)
+  );
   display: fixed;
-  justify-content: right;
+  justify-content: center;
   margin-top: 20px;
   margin-left: 10px;
   flex-basis: 1;
+  border-radius: 8px;
+  box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px;
 }
 
 .inputfield {
   height: 50%;
-  width: 90%;
+  width: 80%;
+  align-self: center;
   background-color: seashell;
   margin: auto;
-  border-radius: 10px;
+  border-radius: 8px;
   line-height: 60px;
+  padding: 20px;
+  box-shadow: rgba(43, 48, 61, 0.32) 0px 1px 15px 0px;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+  align-items: center;
 }
 
 .titlecalc {
   font-size: 27px;
   color: seashell;
-  font-family: "Kaushan Script", cursive;
+  font-family: "Bungee Shade", cursive;
   margin: auto;
   padding: 20px;
+  text-align: center;
 }
 
 h1 {
   padding: 20px;
   color: seashell;
+  font-family: "Raleway", sans-serif;
+  text-align: center;
 }
 
 .api {
-  height: 70vh;
-  width: 33vw;
-  background-color: gray;
+  height: 80vh;
+  width: 25vw;
+  background: url("https://i.pinimg.com/564x/4e/9c/db/4e9cdb6ddff3428b98c6645cb619cc35.jpg");
   display: flex;
   justify-content: right;
+  flex-direction: column;
   margin-top: 20px;
   margin-left: 10px;
   flex-basis: 1;
+  box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px;
+  border-radius: 8px;
+}
+
+.clock {
+  color: rgba(108, 117, 138, 0.767);
+  font-family: "Raleway", sans-serif;
+  font-size: 5.5vw;
+  text-shadow: 4px 4px #ffffff6c;
+  align-self: center;
+  margin: auto;
+}
+
+.autodate {
+  color: rgba(108, 117, 138, 0.767);
+  font-family: "Raleway", sans-serif;
+  font-size: 2.7vw;
+  text-shadow: 2px 2px #ffffff6c;
+  text-align: center;
+  margin: auto;
+}
+
+.apititle {
+  font-family: "Zilla Slab Highlight", cursive;
+  font-size: 2.5vw;
+  color: rgba(62, 62, 63, 0.767);
+  /* text-shadow: 3px 3px #5a5a5a6c; */
+  text-align: center;
+  /* margin: auto; */
+}
+
+.advice {
+  color: rgb(0, 0, 0);
+  font-family: "Nothing You Could Do", cursive;
+  font-size: 3vw;
+  color: rgba(78, 85, 102, 0.767);
+  text-shadow: 2px 2px #ffffffd2;
+  margin: auto;
+  text-align: center;
+  word-wrap: break-word;
+}
+
+@media (max-width: 1438px) {
 }
 
 @media (max-width: 1025px) {

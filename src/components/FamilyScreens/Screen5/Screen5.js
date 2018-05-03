@@ -54,7 +54,7 @@ class Screen5 extends React.Component {
                 )
               }
             >
-              DONE
+              Submit
             </button>
           </Link>
         </div>

@@ -1,7 +1,9 @@
 import React from "react";
 import "./Family.css";
 import { Link } from "react-router-dom";
-// import { removeFamily } from "../../ducks/reducer";
+import { connect } from "react-redux";
+import { removeFamily } from "../../ducks/reducer";
+import Swal from "sweetalert2";
 
 const Family = props => {
   console.log(props.id);
@@ -20,18 +22,37 @@ const Family = props => {
       </div>
       {/* Link => /family/props.id */}
       <div className="button-container">
-        <button onClick={() => props.removeFamily(props.id)}>Delete</button>
         <div>
           <Link to={`/Family/${props.id}`}>
             <button>View</button>
           </Link>
         </div>
+        <button
+          onClick={() =>
+            Swal({
+              title: "Are you sure?",
+              text:
+                "If you click delete, this will permanently remove the entire family and it's contents.",
+              type: "warning",
+              showCancelButton: true,
+              confirmButtonText: "Yes, delete it!",
+              cancelButtonText: "No, keep it."
+            }).then(result => {
+              if (result.value) {
+                props.removeFamily(props.id);
+                Swal("Deleted!", "This family has been deleted.", "success");
+              } else if (result.dismiss === Swal.DismissReason.cancel) {
+                Swal("Cancelled", "Your family file is safe :)", "error");
+              }
+            })
+          }
+        >
+          Delete
+        </button>
       </div>
     </div>
   );
 };
-// mapStateToProps(state) {
-//   return state
-// }
+const mapStateToProps = state => state;
 
-export default Family;
+export default connect(mapStateToProps, { removeFamily })(Family);

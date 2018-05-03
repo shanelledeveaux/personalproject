@@ -6,13 +6,15 @@ import CaseNote from "../../CaseNote/CaseNote";
 import DemoInfo from "../../DemoInfo/DemoInfo";
 import RaisedButton from "material-ui/RaisedButton";
 import axios from "axios";
+import moment from "moment";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   getMember,
   removeMember,
   getCaseNotes,
-  editActive
+  editActive,
+  removeNote
 } from "../../../ducks/memberreducer";
 import { getDemo } from "../../../ducks/demoreducer";
 
@@ -51,7 +53,8 @@ class CompleteFamily extends React.Component {
     const { member } = this.props.memberreducer;
     // console.log(this.props.member);
     const list = member.map((e, i) => {
-      console.log(e);
+      let ebirthday = moment(e.birthday).format("LL");
+      console.log(member);
       return (
         <Member
           key={i}
@@ -60,8 +63,8 @@ class CompleteFamily extends React.Component {
           firstname={e.firstname}
           lastname={e.lastname}
           role={e.role}
-          birthday={e.birthday}
-          work={e.work}
+          birthday={ebirthday}
+          work={e.workplace}
           income={e.income}
           race={e.race}
           ethnicity={e.ethnicity}
@@ -78,8 +81,16 @@ class CompleteFamily extends React.Component {
     const { caseNotes } = this.props.memberreducer;
     // console.log(caseNotes);
     const note = caseNotes.map((e, i) => {
+      let edate = moment(e.date).format("LL");
       return (
-        <CaseNote key={i} id={e.noteid} date={e.date} notes={e.casenote} />
+        <CaseNote
+          key={i}
+          id={e.noteid}
+          familyid={e.familyid}
+          date={edate}
+          notes={e.casenote}
+          removeNote={this.props.removeNote}
+        />
       );
     });
 
@@ -104,10 +115,10 @@ class CompleteFamily extends React.Component {
         </div>
         <div className="familytools">
           <Link to={`/Family/${this.props.match.params.id}/AddMember`}>
-            <i class="material-icons">person_add</i>
+            <i class="person-icon">person_add</i>
           </Link>
           <Link to={`/Family/${this.props.match.params.id}/Screen5`}>
-            <i class="material-icons">note_add</i>
+            <i class="person-icon">note_add</i>
           </Link>
           {/* <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
             <i class="material-icons">navigate_next</i>
@@ -135,5 +146,6 @@ export default connect(mapStateToProps, {
   removeMember,
   getCaseNotes,
   getDemo,
-  editActive
+  editActive,
+  removeNote
 })(CompleteFamily);

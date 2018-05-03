@@ -17,14 +17,19 @@ export default class Header extends React.Component {
     return (
       <div className="header">
         {/* <img className="famlogo" src={famlogo} alt="Fam Logo" width="8%" /> */}
-        <div className="title">YourHome</div>
+        <Link to="/Dash" className="title">
+          YourHome
+        </Link>
         <div className="menu-button">
-          <Link to="/AddFamily">
+          <Link to="/AddFamily" className="button-wrap">
             <i className="material-icons">group_add</i>
           </Link>
-          <Link to="/Dash">
-            <i className="material-icons">home</i>
+          <Link to="/">
+            <i class="material-icons">close</i>
           </Link>
+          {/* <Link to="/Dash">
+            <i className="material-icons">home</i>
+          </Link> */}
         </div>
       </div>
     );
