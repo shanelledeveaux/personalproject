@@ -13,6 +13,7 @@ const Auth0Strategy = require("passport-auth0");
 const mc = require(`./controller`);
 
 const app = express();
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -115,6 +116,11 @@ app.put(`/api/goal/:id/:familyId`, mc.editSlider);
 
 //ADVICE API
 app.get("/api/advice", mc.getAdvice);
+
+const path = require("path");
+app.get("*", (req, res, next) => {
+  res.sendFile(path.join(__dirname, "/../build/index.html"));
+});
 
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
