@@ -78,6 +78,11 @@ app.get(
   })
 );
 
+app.get("/logout", (req, res) => {
+  req.logOut();
+  return res.redirect("http://localhost:3000/#/");
+});
+
 function authenticated(req, res, next) {
   if (req.user) {
     next();
@@ -102,10 +107,11 @@ app.get(`/api/notes/:familyid`, mc.getNotes);
 app.delete(`/api/notes/:id/:familyId`, mc.removeNotes);
 app.post(`/api/notes`, mc.submitCaseNotes);
 
-//DEMOGRAPHIC SUBMIT
-app.get(`/api/demo/:familyid`, mc.getDemo);
-app.delete(`/api/demo/:id`, mc.removeDemo);
-app.post(`/api/demo`, mc.submitDemo);
+//GOAL SUBMIT
+app.get(`/api/goal/:familyid`, mc.getGoal);
+app.delete(`/api/goal/:id/:familyId`, mc.removeGoal);
+app.post(`/api/goal`, mc.submitGoal);
+app.put(`/api/goal/:id/:familyId`, mc.editSlider);
 
 //ADVICE API
 app.get("/api/advice", mc.getAdvice);

@@ -1,4 +1,5 @@
 import React from "react";
+import "./AddMember.css";
 import Header from "../../Header/Header";
 import routes from "../../../routes";
 import { Link } from "react-router-dom";
@@ -47,7 +48,7 @@ class AddMember extends React.Component {
         <div>
           <Header />
         </div>
-        {/* NEED BIRTHDAY, RACE ETHNICIY AND RECORD */}
+        <div className="header2">Add Family Member</div>
         <Paper zDepth={2}>
           <TextField
             hintText="First Name"
@@ -127,9 +128,9 @@ class AddMember extends React.Component {
           />
           <Divider />
         </Paper>
-        <Link to="/Screen3">
+        {/* <Link to="/Screen3">
           <button>Next</button>
-        </Link>
+        </Link> */}
         <Link to={`/Family/${this.props.match.params.id}`}>
           <button
             onClick={e =>
@@ -149,7 +150,7 @@ class AddMember extends React.Component {
               )
             }
           >
-            Add Family Member
+            Submit
           </button>
         </Link>
       </div>

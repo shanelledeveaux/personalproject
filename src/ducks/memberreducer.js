@@ -238,32 +238,6 @@ export function getMember(familyId) {
   };
 }
 
-// export function removeMember(id, familyId) {
-//   console.log("deleting", id);
-//   return {
-//     type: REMOVE_MEMBER,
-//     payload: axios.delete(`/api/person/${id}/${familyId}`).then(
-//       swal({
-//         title: "Are you sure?",
-//         text:
-//           "Once deleted, you will not be able to recover this imaginary file!",
-//         icon: "warning",
-//         buttons: true,
-//         dangerMode: true
-//       }).then(willDelete => {
-//         if (willDelete) {
-//           swal("Poof! Your imaginary file has been deleted!", {
-//             icon: "success"
-//           });
-//         } else {
-//           swal("Your imaginary file is safe!");
-//         }
-//       })
-
-//     )
-//   };
-// }
-
 export function removeMember(id, familyId) {
   console.log("deleting", id);
   return {

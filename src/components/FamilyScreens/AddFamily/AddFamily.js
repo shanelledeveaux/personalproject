@@ -33,10 +33,7 @@ class AddFamily extends React.Component {
       <div>
         <Header />
         <div className="addfam">
-          <div className="instructions">
-            Complete Information Fields Below To Add a New Family To Your
-            Caseload.
-          </div>
+          <div className="instructions">Add Family</div>
           <Paper zDepth={2}>
             <TextField
               hintText="Last Name"

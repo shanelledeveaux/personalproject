@@ -3,8 +3,9 @@ import "./CompleteFamily.css";
 import Header from "../../Header/Header";
 import Member from "../Member/Member";
 import CaseNote from "../../CaseNote/CaseNote";
-import DemoInfo from "../../DemoInfo/DemoInfo";
-import RaisedButton from "material-ui/RaisedButton";
+import Goal from "../../Goal/Goal";
+// import RaisedButton from "material-ui/RaisedButton";
+import { Tabs, Tab } from "material-ui/Tabs";
 import axios from "axios";
 import moment from "moment";
 import { Link } from "react-router-dom";
@@ -16,35 +17,37 @@ import {
   editActive,
   removeNote
 } from "../../../ducks/memberreducer";
-import { getDemo } from "../../../ducks/demoreducer";
+import { getGoals, removeGoal, editSlider } from "../../../ducks/demoreducer";
+
+const styles = {
+  headline: {
+    fontSize: 24,
+    paddingTop: 16,
+    marginBottom: 12,
+    fontWeight: 700
+  }
+};
 
 class CompleteFamily extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-
-    // this.removeMember = this.removeMember.bind(this);
+    this.state = {
+      value: "a"
+    };
   }
 
   componentDidMount() {
     this.props.getMember(this.props.match.params.id);
     this.props.getCaseNotes(this.props.match.params.id);
-    this.props.getDemo(this.props.match.params.id);
+    // this.props.getDemo(this.props.match.params.id);
+    this.props.getGoals(this.props.match.params.id);
   }
 
-  //  removeMember(id) {
-  //     axios
-  //       .delete(`/api/person/${id}`)
-  //       .then(() => this.getMember())
-  //       .catch(error => console.log(error));
-  //   }
-
-  // editActive(id) {
-  //   axios
-  //     .put(`/api/person/${id}/${familyId}`)
-  //     .then(() => this.getMember())
-  //     .catch(error => console.log(error));
-  // }
+  handleChange = value => {
+    this.setState({
+      value: value
+    });
+  };
 
   render() {
     const style = {
@@ -95,15 +98,19 @@ class CompleteFamily extends React.Component {
     });
 
     const { demo } = this.props.demoreducer;
-    const demos = demo.map((e, i) => {
+    const goal = demo.map((e, i) => {
+      console.log(e);
       return (
-        <DemoInfo
+        <Goal
           key={i}
           id={e.demoid}
-          hud={e.hud}
-          snap={e.snap}
-          wic={e.wic}
-          tanf={e.tanf}
+          familyid={e.familyid}
+          goal={e.goal}
+          step1={e.step1}
+          step2={e.step2}
+          step3={e.step3}
+          slider={this.props.slider}
+          editSlider={this.props.editSlider}
         />
       );
     });
@@ -120,20 +127,61 @@ class CompleteFamily extends React.Component {
           <Link to={`/Family/${this.props.match.params.id}/Screen5`}>
             <i class="person-icon">note_add</i>
           </Link>
+          <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
+            <i class="material-icons">playlist_add</i>
+          </Link>
           {/* <Link to={`/Family/${this.props.match.params.id}/Screen3`}>
             <i class="material-icons">navigate_next</i>
           </Link> */}
         </div>
-        <div className="memberdiv">
-          <div className="text">Family Members</div>
+        <Tabs
+          className="tabs"
+          value={this.state.value}
+          onChange={this.handleChange}
+          inkBarStyle={{ background: "grey" }}
+        >
+          <Tab label="Family Members" value="a">
+            <div className="memberdiv">
+              {/* <div className="text">Family Members</div> */}
+              <div className="fammember">
+                {list.length === 0 ? (
+                  <div className="conren">
+                    Click the person icon above to add family members to this
+                    family.
+                  </div>
+                ) : (
+                  <div className="fammember2">{list}</div>
+                )}
+              </div>
+            </div>
+          </Tab>
+          {/* //TAB TAB TAB TAB TAB */}
 
-          <div className="fammember"> {list}</div>
-        </div>
-        <div className="casebox">
-          <div className="text">Family Notes</div>
-          <div className="casenotebox"> {note}</div>
-        </div>
-        <div className="demoinfo">{demo}</div>
+          <Tab label="Goals" value="b">
+            <div className="goals">
+              {goal.length === 0 ? (
+                <div className="conren">
+                  Click the list icon above to add a goal for this family.
+                </div>
+              ) : (
+                <div className="goals2">{goal}</div>
+              )}
+            </div>
+          </Tab>
+          <Tab label="Case Notes" value="c">
+            <div className="casebox">
+              <div className="casenotebox">
+                {note.length === 0 ? (
+                  <div className="conren">
+                    Click the note icon above to add case notes to this family.
+                  </div>
+                ) : (
+                  <div className="casenotebox">{note}</div>
+                )}
+              </div>
+            </div>
+          </Tab>
+        </Tabs>
       </div>
     );
   }
@@ -145,7 +193,8 @@ export default connect(mapStateToProps, {
   getMember,
   removeMember,
   getCaseNotes,
-  getDemo,
   editActive,
-  removeNote
+  removeNote,
+  getGoals,
+  editSlider
 })(CompleteFamily);

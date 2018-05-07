@@ -69,7 +69,7 @@ const Member = props => {
             })
           }
         >
-          DELETE
+          Delete
         </button>
       </div>
     </div>

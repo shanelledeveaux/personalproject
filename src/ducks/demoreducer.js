@@ -1,46 +1,51 @@
 import axios from "axios";
 
 const initialState = {
-  hud: "",
-  snap: "",
-  wic: "",
-  tanf: "",
+  goal: "",
+  step1: "",
+  step2: "",
+  step3: "",
+  slider: "",
 
   demo: [],
 
   familyId: ""
 };
 
-const UPDATE_HUD = "UPDATE_HUD";
-const UPDATE_SNAP = "UPDATE_SNAP";
-const UPDATE_WIC = "UPDATE_WIC";
-const UPDATE_TANF = "UPDATE_TANF";
-const SUBMIT_DEMO = "SUBMIT_DEMO";
-const GET_DEMO = "GET_DEMO";
-const REMOVE_DEMO = "REMOVE_DEMO";
+const UPDATE_GOAL = "UPDATE_GOAL";
+const UPDATE_STEP1 = "UPDATE_STEP1";
+const UPDATE_STEP2 = "UPDATE_STEP2";
+const UPDATE_STEP3 = "UPDATE_STEP3";
+const SUBMIT_GOAL = "SUBMIT_GOAL";
+const GET_GOALS = "GET_GOALS";
+const REMOVE_GOAL = "REMOVE_GOAL";
+const EDIT_SLIDER = "EDIT_SLIDER";
 
 function reducer(state = initialState, action) {
   switch (action.type) {
-    case UPDATE_HUD:
-      return Object.assign({}, state, { hud: action.payload });
+    case UPDATE_GOAL:
+      return Object.assign({}, state, { goal: action.payload });
 
-    case UPDATE_SNAP:
-      return Object.assign({}, state, { snap: action.payload });
+    case UPDATE_STEP1:
+      return Object.assign({}, state, { step1: action.payload });
 
-    case UPDATE_WIC:
-      return Object.assign({}, state, { wic: action.payload });
+    case UPDATE_STEP2:
+      return Object.assign({}, state, { step2: action.payload });
 
-    case UPDATE_TANF:
-      return Object.assign({}, state, { tanf: action.payload });
+    case UPDATE_STEP3:
+      return Object.assign({}, state, { step3: action.payload });
 
-    case `${SUBMIT_DEMO}_FULFILLED`:
+    case `${SUBMIT_GOAL}_FULFILLED`:
       return Object.assign({}, state, { demo: action.payload.data });
 
-    case `${GET_DEMO}_FULFILLED`:
+    case `${GET_GOALS}_FULFILLED`:
       return Object.assign({}, state, { demo: action.payload.data });
 
-    case `${REMOVE_DEMO}_FULFILLED`:
+    case `${REMOVE_GOAL}_FULFILLED`:
       return Object.assign({}, state, { demo: action.payload.data });
+
+    case `${EDIT_SLIDER}_FULFILLED`:
+      return Object.assign({}, state, { slider: action.payload.data });
 
     default:
       return state;
@@ -49,51 +54,65 @@ function reducer(state = initialState, action) {
 
 export default reducer;
 
-export function updateHUD(hud) {
+export function updateGoal(goal) {
   return {
-    type: UPDATE_HUD,
-    payload: hud
+    type: UPDATE_GOAL,
+    payload: goal
   };
 }
 
-export function updateSNAP(snap) {
+export function updateStep1(step1) {
   return {
-    type: UPDATE_SNAP,
-    payload: snap
+    type: UPDATE_STEP1,
+    payload: step1
   };
 }
 
-export function updateWIC(wic) {
+export function updateStep2(step2) {
   return {
-    type: UPDATE_WIC,
-    payload: wic
+    type: UPDATE_STEP2,
+    payload: step2
   };
 }
 
-export function updateTANF(tanf) {
+export function updateStep3(step3) {
   return {
-    type: UPDATE_TANF,
-    payload: tanf
+    type: UPDATE_STEP3,
+    payload: step3
   };
 }
 
-export function submitDemo(hud, snap, wic, tanf, familyid) {
+export function submitGoal(goal, step1, step2, step3, familyid) {
   return {
-    type: SUBMIT_DEMO,
-    payload: axios.post("/api/demo", { hud, snap, wic, tanf, familyid })
+    type: SUBMIT_GOAL,
+    payload: axios.post("/api/goal", { goal, step1, step2, step3, familyid })
   };
 }
 
-export function getDemo(familyId) {
+export function getGoals(familyId) {
   return {
-    type: GET_DEMO,
-    payload: axios.get(`/api/demo/${familyId}`)
+    type: GET_GOALS,
+    payload: axios.get(`/api/goal/${familyId}`)
   };
 }
 
-export function removeDemo(id) {
+export function removeGoal(id, familyId) {
   return {
-    type: REMOVE_DEMO,
-    payload: axios.delete(`/api/demo/${id}`)
+    type: REMOVE_GOAL,
+    payload: axios.delete(`/api/goal/${id}/${familyId}`)
+  };
+}
+
+// export function updateSliderPercentage(percent) {
+//   return {
+//     type: UPDATE_SLIDER_PERCENTAGE,
+//     payload: axios.put()
+//   };
+// }
+
+export function editSlider(id, familyId, slider) {
+  return {
+    type: EDIT_SLIDER,
+    payload: axios.put(`/api/goal/${id}/${familyId}`, { slider })
   };
 }

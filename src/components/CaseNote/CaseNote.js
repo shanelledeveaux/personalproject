@@ -7,12 +7,14 @@ const CaseNote = props => {
       <div className="note">
         <p className="date">{props.date}</p>
         <p className="info">{props.notes}</p>
-      </div>
-      <div className="button">
         <button onClick={() => props.removeNote(props.id, props.familyid)}>
           Delete
         </button>
       </div>
+
+      {/* <button onClick={() => props.removeNote(props.id, props.familyid)}>
+          Delete
+        </button> */}
     </div>
   );
 };

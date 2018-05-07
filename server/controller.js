@@ -136,36 +136,46 @@ module.exports = {
       .catch(console.log);
   },
 
-  getDemo: (req, res, next) => {
+  getGoal: (req, res, next) => {
     const { familyid } = req.params;
     const dbInstance = req.app.get("db");
     dbInstance
-      .get_demo([familyid])
+      .get_goals([familyid])
       .then(response => res.status(200).send(response))
       .catch(() => res.status(500).send());
   },
 
-  removeDemo: (req, res, next) => {
+  removeGoal: (req, res, next) => {
     const dbInstance = req.app.get("db");
     dbInstance
-      .remove_demo()
+      .remove_goal()
       .then(response => res.status(200).send(response))
       .catch(() => res.status(500).send());
   },
 
-  submitDemo: (req, res, next) => {
+  submitGoal: (req, res, next) => {
     const dbInstance = req.app.get("db");
-    const { hud, snap, wic, tanf, familyid } = req.body;
+    const { goal, step1, step2, step3, familyid } = req.body;
 
     console.log(req.body);
 
     dbInstance
-      .add_demo([hud, snap, wic, tanf, familyid])
+      .add_goal([goal, step1, step2, step3, familyid])
       .then(response => {
         console.log(response);
         res.status(200).json(response);
       })
       .catch(console.log);
+  },
+
+  editSlider: (req, res, next) => {
+    const { familyId, id } = req.params;
+    const { slider } = req.body;
+    const dbInstance = req.app.get("db");
+    dbInstance
+      .edit_slider([slider, id, familyId])
+      .then(response => res.status(200).send(response))
+      .catch(e => console.log(e));
   },
 
   getAdvice: (req, res, next) => {

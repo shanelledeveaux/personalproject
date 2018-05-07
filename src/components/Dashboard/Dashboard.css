@@ -11,6 +11,11 @@
   /* box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px; */
 }
 
+.conren {
+  font-family: "Raleway", sans-serif;
+  font-size: 1.5rem;
+}
+
 .addfam {
   display: flex;
   flex-direction: column;
@@ -31,7 +36,7 @@
 }
 
 .calc-div {
-  height: 80vh;
+  height: 40vh;
   width: 40vw;
   background: linear-gradient(
     to bottom right,
@@ -40,25 +45,25 @@
   );
   display: fixed;
   justify-content: center;
-  margin-top: 20px;
-  margin-left: 10px;
+  /* margin-top: 20px; */
+  /* margin-left: 10px; */
   flex-basis: 1;
   border-radius: 8px;
   box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px;
 }
 
 .inputfield {
-  height: 50%;
+  height: 30%;
   width: 80%;
   align-self: center;
   background-color: seashell;
   margin: auto;
   border-radius: 8px;
-  line-height: 60px;
+  line-height: 13px;
   padding: 20px;
   box-shadow: rgba(43, 48, 61, 0.32) 0px 1px 15px 0px;
   font-family: "Raleway", sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   align-items: center;
 }
 
@@ -72,36 +77,99 @@
 }
 
 h1 {
-  padding: 20px;
+  padding: 10px;
   color: seashell;
   font-family: "Raleway", sans-serif;
   text-align: center;
 }
 
+.todo-container {
+  padding: 20px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.todolist {
+  height: 40vh;
+  width: 40vw;
+  margin-top: 15px;
+  display: fixed;
+  justify-content: center;
+  border-radius: 8px;
+  background: linear-gradient(
+    to bottom right,
+    rgba(108, 117, 138, 0.767),
+    rgba(65, 76, 99, 0.767)
+  );
+}
+
+.todo {
+  width: 100%;
+}
+
+.todo-top {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 27px;
+  color: seashell;
+  font-family: "Bungee Shade", cursive;
+}
+
+.todo-items {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: scroll;
+  overflow-x: hidden;
+  height: 55%;
+  box-sizing: border-box;
+  background-color: rgba(0, 0, 0, 0.185);
+  padding: 15px;
+  color: seashell;
+  font-family: "Raleway", sans-serif;
+}
+
+.todo-items li {
+  list-style: none;
+  display: flex;
+}
+
+.todobutton {
+  margin-right: 10px;
+  padding: 1px;
+}
+
 .api {
   height: 80vh;
-  width: 25vw;
+  width: 24vw;
   background: url("https://i.pinimg.com/564x/4e/9c/db/4e9cdb6ddff3428b98c6645cb619cc35.jpg");
   display: flex;
-  justify-content: right;
+  justify-content: center;
   flex-direction: column;
   margin-top: 20px;
   margin-left: 10px;
+  margin-right: 10px;
   flex-basis: 1;
   box-shadow: rgba(84, 95, 121, 0.32) 0px 1px 15px 0px;
   border-radius: 8px;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .clock {
   color: rgba(255, 255, 255, 0);
   background-color: rgba(108, 117, 138, 0.767);
   font-family: "Raleway", sans-serif;
-  font-size: 5.5vw;
+  font-size: 5vw;
   text-shadow: 5px 5px #ffffff6c;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   align-self: center;
-  margin: auto;
+  /* margin: auto; */
+  margin-bottom: 15px;
 }
 
 .autodate {
@@ -110,7 +178,8 @@ h1 {
   font-size: 2vw;
   text-shadow: 2px 2px #ffffff6c;
   text-align: center;
-  margin: auto;
+  /* margin: auto; */
+  margin-bottom: 25px;
 }
 
 .apititle {
@@ -120,15 +189,16 @@ h1 {
   /* text-shadow: 3px 3px #5a5a5a6c; */
   text-align: center;
   /* margin: auto; */
+  margin-bottom: 15px;
 }
 
 .advice {
   color: rgb(0, 0, 0);
-  font-family: "Nothing You Could Do", cursive;
+  font-family: "Raleway", sans-serif;
   font-size: 2vw;
   color: rgba(78, 85, 102, 0.767);
   text-shadow: 2px 2px #ffffffd2;
-  margin: auto;
+  /* margin: auto; */
   text-align: center;
   word-wrap: break-word;
 }
@@ -146,5 +216,8 @@ h1 {
   .housebox {
     width: 95%;
     height: 100%;
+  }
+  .todolist {
+    display: none;
   }
 }

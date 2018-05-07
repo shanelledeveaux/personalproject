@@ -10,6 +10,9 @@ export default class Header extends React.Component {
     super(props);
   }
 
+  logout() {
+    window.location = process.env.REACT_APP_LOGOUT;
+  }
   render() {
     const style = {
       margin: 12
@@ -21,12 +24,15 @@ export default class Header extends React.Component {
           YourHome
         </Link>
         <div className="menu-button">
-          <Link to="/AddFamily" className="button-wrap">
+          <Link to="/AddFamily">
             <i className="material-icons">group_add</i>
           </Link>
-          <Link to="/">
-            <i class="material-icons">close</i>
-          </Link>
+          {/* <a */}
+          {/* href={process.env.REACT_APP_LOGOUT}> */}
+          <i onClick={() => this.logout()} class="material-icons">
+            close
+          </i>
+          {/* </a> */}
           {/* <Link to="/Dash">
             <i className="material-icons">home</i>
           </Link> */}

@@ -31,6 +31,7 @@ class Screen5 extends React.Component {
         <div>
           <Header />
         </div>
+        <div className="noteheader">Add A New Note</div>
         <div className="enternotes">
           <DatePicker
             hintText="DATE"

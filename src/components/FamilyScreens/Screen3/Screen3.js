@@ -1,4 +1,5 @@
 import React from "react";
+import "./Screen3.css";
 import Header from "../../Header/Header";
 import routes from "../../../routes";
 import { Link } from "react-router-dom";
@@ -7,11 +8,11 @@ import Paper from "material-ui/Paper";
 import TextField from "material-ui/TextField";
 import { connect } from "react-redux";
 import {
-  updateHUD,
-  updateSNAP,
-  updateWIC,
-  updateTANF,
-  submitDemo
+  updateGoal,
+  updateStep1,
+  updateStep2,
+  updateStep3,
+  submitGoal
 } from "../../../ducks/demoreducer";
 
 class Screen3 extends React.Component {
@@ -29,45 +30,45 @@ class Screen3 extends React.Component {
         <div>
           <Header />
         </div>
-        DEMO INFORMATION
+        <div className="input">Add A New Goal</div>
         <Paper zDepth={2}>
           <TextField
-            hintText="Amount in HUD benefits"
+            hintText="Goal"
             style={style}
             underlineShow={false}
-            onChange={e => this.props.updateHUD(e.target.value)}
+            onChange={e => this.props.updateGoal(e.target.value)}
           />
           <Divider />
           <TextField
-            hintText="Amount in SNAP benefits"
+            hintText="Action Step 1"
             style={style}
             underlineShow={false}
-            onChange={e => this.props.updateSNAP(e.target.value)}
+            onChange={e => this.props.updateStep1(e.target.value)}
           />
           <Divider />
           <TextField
-            hintText="Amount in WIC benefits"
+            hintText="Action Step 2"
             style={style}
             underlineShow={false}
-            onChange={e => this.props.updateWIC(e.target.value)}
+            onChange={e => this.props.updateStep2(e.target.value)}
           />
           <Divider />
           <TextField
-            hintText="Amount in TANF benefits"
+            hintText="Action Step 3"
             style={style}
             underlineShow={false}
-            onChange={e => this.props.updateTANF(e.target.value)}
+            onChange={e => this.props.updateStep3(e.target.value)}
           />
           <Divider />
         </Paper>
-        <Link to="/Screen4">
+        <Link to={`/Family/${this.props.match.params.id}`}>
           <button
             onClick={e =>
-              this.props.submitDemo(
-                this.props.demoreducer.hud,
-                this.props.demoreducer.snap,
-                this.props.demoreducer.wic,
-                this.props.demoreducer.tanf,
+              this.props.submitGoal(
+                this.props.demoreducer.goal,
+                this.props.demoreducer.step1,
+                this.props.demoreducer.step2,
+                this.props.demoreducer.step3,
                 this.props.match.params.id
               )
             }
@@ -85,9 +86,9 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, {
-  updateHUD,
-  updateSNAP,
-  updateWIC,
-  updateTANF,
-  submitDemo
+  updateGoal,
+  updateStep1,
+  updateStep2,
+  updateStep3,
+  submitGoal
 })(Screen3);

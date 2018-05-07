@@ -8,11 +8,14 @@
   border-radius: 5px;
   display: inline-block;
   line-height: 3%;
-  height: 150px;
+  /* height: 150px; */
+  box-sizing: border-box;
   width: 90%;
   background-color: rgb(135, 135, 136);
   margin: 10px;
   color: white;
+  overflow: inherit;
+  resize: vertical;
 }
 
 casenote {
@@ -21,10 +24,12 @@ casenote {
 
 .note {
   margin-left: 10px;
+  word-wrap: break-word;
+  line-height: 1;
 }
 
 .info {
-  padding: 20px;
+  padding: 10px;
 }
 
 .button {

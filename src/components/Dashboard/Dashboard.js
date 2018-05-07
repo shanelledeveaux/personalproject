@@ -10,6 +10,7 @@ import { getFamily, removeFamily } from "../../ducks/reducer";
 // import MenuItem from "material-ui/MenuItem";
 import TextField from "material-ui/TextField";
 import Clock from "react-live-clock";
+import ToDo from "../ToDo/ToDo";
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -89,35 +90,40 @@ class Dashboard extends React.Component {
               <div className="advice">{advice}</div>
               {/* <button onClick={this.getAdvice}>Next</button> */}
             </div>
-            <div className="calc-div">
-              <div className="titlecalc"> Eligibility Calculator </div>
-              <div className="inputfield">
-                <div className="label">Family Size: </div>
-                <TextField
-                  value={this.state.familySize}
-                  onChange={this.handleChange}
-                />
-                <br />
-                <div className="label">Total Gross Monthly Income: </div>
-                <TextField
-                  value={this.state.income}
-                  onChange={this.incomeChange}
-                  hintText="$$$"
-                />
+            <div className="centerdiv">
+              <div className="calc-div">
+                <div className="titlecalc"> Eligibility Calculator </div>
+                <div className="inputfield">
+                  <div className="label">Family Size: </div>
+                  <TextField
+                    value={this.state.familySize}
+                    onChange={this.handleChange}
+                  />
+                  <br />
+                  <div className="label">Total Gross Monthly Income: </div>
+                  <TextField
+                    value={this.state.income}
+                    onChange={this.incomeChange}
+                    hintText="$$$"
+                  />
+                </div>
+                {this.state.income <=
+                (12140 + (this.state.familySize - 1) * 4320) / 12 ? (
+                  <div>
+                    <h1>They Qualify!</h1>
+                  </div>
+                ) : (
+                  <div>
+                    <h1>They Are Over Income Limits.</h1>
+                  </div>
+                )}
               </div>
-              {this.state.income <=
-              (12140 + (this.state.familySize - 1) * 4320) / 12 ? (
-                <div>
-                  <h1>They Qualify!</h1>
-                </div>
-              ) : (
-                <div>
-                  <h1>They Are Over Income Limits.</h1>
-                </div>
-              )}
+              <div className="todolist">
+                <ToDo />
+              </div>
             </div>
-            {!list | list ? (
-              "Add a family"
+            {list.length === 0 ? (
+              <div className="conren">Click The Icon To Add A Family</div>
             ) : (
               <div className="housebox">{list}</div>
             )}
