@@ -23,7 +23,7 @@ const Member = props => {
       <div className="memberinfo">
         <p className="role">Role: {props.role}</p>
         <p className="birthday">Birthdate: {props.birthday}</p>
-        <p className="workplace">Work Place: {props.workplace}</p>
+        <p className="workplace">Work Place: {props.work}</p>
         <p className="income">Income: {props.income}</p>
         <p className="race">Race: {props.race}</p>
         <p className="ethnicity">Ethnicity: {props.ethnicity}</p>

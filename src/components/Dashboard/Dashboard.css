@@ -65,6 +65,9 @@
   font-family: "Raleway", sans-serif;
   font-size: 1rem;
   align-items: center;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .titlecalc {

@@ -143,7 +143,7 @@ class AddMember extends React.Component {
                 this.props.memberreducer.income,
                 this.props.memberreducer.race,
                 this.props.memberreducer.ethnicity,
-                this.props.memberreducer.firstchild,
+                this.props.memberreducer.firstChild,
                 this.props.memberreducer.education,
                 this.props.memberreducer.record,
                 this.props.match.params.id

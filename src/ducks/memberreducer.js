@@ -211,7 +211,7 @@ export function submitMember(
   record,
   familyId
 ) {
-  console.log("submitting", work);
+  console.log("submitting", firstChild);
   return {
     type: SUBMIT_MEMBER,
     payload: axios.post("/api/person", {
