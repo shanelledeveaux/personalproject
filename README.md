@@ -2,6 +2,7 @@
 
 Designed for a non-profit to manage low-income families and their transition out of poverty.
 
+
 ## Auth0 Authentication
 
 Utilized Auth0 for secure tracking of user information.
@@ -19,3 +20,8 @@ Includes a calculator for a quick calculation of wether a family is eligible for
 Track success of families in a organized filing system.
 
 ![login](https://media.giphy.com/media/9Y5ftYbmJCZCxnev6Y/giphy.gif)
+
+## Relational Database
+Created and stored information PostgreSQL database. 
+
+![database](https://lh3.googleusercontent.com/2a7BtX8iy-pQeCEt4vAovcuHPTpBKXzqE23F1J8ao-InLOZDF7AkmO0GW7Jh8eDHWgBFCRVtsig)
